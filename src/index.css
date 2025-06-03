@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#1A1F2C] text-foreground;
+  }
+}
+
+.service-card {
+  @apply relative overflow-hidden rounded-xl bg-card p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.service-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.service-card:hover::before {
+  @apply opacity-100;
+}
+
+.profile-border {
+  @apply relative rounded-full overflow-hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-border::before {
+  content: '';
+  @apply absolute -inset-1 rounded-full border-2 border-primary;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-8 last:pb-0;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute left-0 top-2 h-3 w-3 rounded-full bg-primary;
+}
+
+.timeline-item::after {
+  content: '';
+  @apply absolute left-[5px] top-5 h-full w-0.5 bg-primary/30;
+}
+
+.timeline-item:last-child::after {
+  @apply hidden;
+}
